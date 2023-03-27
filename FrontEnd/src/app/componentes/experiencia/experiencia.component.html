@@ -1,0 +1,34 @@
+<div class="alert alert-success border border-dark border-3 rounded-4" role="alert">
+    <h2>Experiencia</h2>
+     <div class="col-lg-2">
+        <button type="button" class="btn btn-success" routerLink="/nuevaexp" *ngIf="isLogged">
+            <i class="bi bi-file-earmark-plus-fill"></i>
+        </button>
+    </div>
+
+    <div class="col lg 1"></div>
+    <div class="col-lg-11">
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let Experiencia of expe">
+                    
+                        <h3>{{Experiencia.nombreE}}</h3>
+                    
+
+                    <p>{{Experiencia.descripcionE}}</p>
+
+                    <td *ngIf="isLogged">
+                            <button class="btn btn-success" routerLink="/editexp/{{Experiencia.id}}">
+                            <i class="bi bi-pencil-fill"></i>Editar</button>
+                    </td>
+                    <td *ngIf="isLogged">
+                        <button class="btn btn-success" (click)="delete(Experiencia.id)">
+                            <i class="bi bi-trash-fill"></i>Borrar</button>
+                    </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
